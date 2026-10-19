@@ -1,1 +1,6 @@
-
+from .svg_engine import svg_start,finish_svg,text,line,rect
+from .themes import get_theme
+def generate(theme_name='midnight',density=1.0):
+ t=get_theme(theme_name);p=svg_start(760,650,'Capability map','Seven engineering domains connected to systems thinking.',t['background']);cx,cy=380,323;nodes=[(380,100,'AI & INTELLIGENT','SYSTEMS'),(595,196,'CYBERSECURITY','& DIGITAL TRUST'),(613,375,'SYSTEMS &','PERFORMANCE'),(481,530,'CLOUD & SOFTWARE','ENGINEERING'),(266,530,'BLOCKCHAIN &','DIGITAL INFRASTRUCTURE'),(147,375,'AUTONOMOUS &','EMBEDDED SYSTEMS'),(165,196,'RESEARCH &','EMERGING TECH')]
+ for x,y,a,b in nodes:p.extend([line(cx,cy,x,y,t['accent']),rect(x-89,y-31,178,62,t['panel'],t['line']),text(x,y-3,a,11,t['ink'],'middle','600'),text(x,y+14,b,11,t['ink'],'middle','600')])
+ p.extend([f'<circle cx="{cx}" cy="{cy}" r="82" fill="{t["panel"]}" stroke="{t["accent"]}"/>',text(cx,306,'CORE',10,t['accent'],'middle'),text(cx,329,'SYSTEMS',18,t['ink'],'middle','600'),text(cx,348,'THINKING',18,t['ink'],'middle','600')]);return finish_svg(p)
