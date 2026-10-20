@@ -8,13 +8,18 @@ class RouteStructureTests(unittest.TestCase):
         pages = (
             "Website/index.php", "Website/solutions.php", "Website/capabilities.php",
             "Website/technology.php", "Website/approach.php", "Website/about.php",
-            "Website/contact.php", "Website/privacy.php", "Website/terms.php",
-            "Website/404.php", "Work/index.php", "Work/categories.php",
+            "Website/contact.php", "Website/privacy.php", "Website/404.php",
+            "Work/index.php", "Work/categories.php",
         )
         for relative in pages:
             with self.subTest(path=relative):
                 self.assertTrue((ROOT / relative).is_file())
                 self.assertGreater((ROOT / relative).stat().st_size, 100)
+
+    def test_terms_route_uses_existing_privacy_template(self):
+        rules = (ROOT / ".htaccess").read_text(encoding="utf-8")
+        self.assertIn("terms\\.php$ Website/privacy.php?document=terms", rules)
+        self.assertFalse((ROOT / "Website/terms.php").exists())
 
     def test_existing_site_configuration_is_not_a_placeholder(self):
         self.assertGreater((ROOT / "Includes/bootstrap.php").stat().st_size, 100)

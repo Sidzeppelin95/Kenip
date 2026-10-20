@@ -4,10 +4,10 @@ Responsive PHP website built into the repository's pre-created directory structu
 
 ## Existing project layout
 
-- `Website/` — page templates: home, solutions, capabilities, technology, approach, about, contact, privacy, terms, and 404.
-- `Includes/` — shared configuration, escaping/content helpers, metadata, navigation, footer, contact-link rendering, and small reusable presentation helpers.
+- `Website/` — page templates for home, solutions, capabilities, technology, approach, about, contact, privacy, and 404. The terms URL is handled by the existing privacy template with a query flag; no extra page file is added.
+- `Includes/` — shared configuration, escaping/content helpers, metadata, navigation, footer, contact-link rendering, and reusable presentation helpers.
 - `Work/` — category overview and data-driven category detail page.
-- `data/` — editable JSON content and public-site configuration. The pre-existing filename `data/technology,json` contains a comma rather than a dot; the code intentionally reads and validates that exact filename so no new path is introduced.
+- `data/` — editable JSON content and public-site configuration. The pre-existing filename `data/technology,json` contains a comma rather than a dot; the code intentionally reads and validates that exact filename.
 - `assets/css/` and `assets/svg/` — stylesheets and four accessible diagrams.
 - `python/` — SVG generation, sitemap generation, validation, and optional Tkinter Visual Lab.
 - `tests/` — standard-library unit tests.
@@ -16,7 +16,7 @@ Responsive PHP website built into the repository's pre-created directory structu
 
 PHP 8.1+ and Python 3.10+ are recommended. Tkinter is optional. No Composer, Node, npm, or database is required.
 
-Run the checks from the repository root:
+Run from the repository root:
 
 ```sh
 python python/build.py
