@@ -1,1 +1,22 @@
-
+Options -Indexes
+DirectoryIndex Website/index.php
+ErrorDocument 404 /Website/404.php
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule (^|/)\.git(/|$) - [F,L,NC]
+ RewriteRule (^|/)\.env(?:\..*)?$ - [F,L,NC]
+ RewriteRule ^$ Website/index.php [L]
+ RewriteRule ^(solutions|capabilities|technology|approach|about|contact|privacy|terms|404)\.php$ Website/$1.php [L,NC]
+ RewriteRule ^work/?$ Work/index.php [L,NC]
+ RewriteRule ^work/index\.php$ Work/index.php [L,NC]
+ RewriteRule ^work/category\.php$ Work/categories.php [L,NC,QSA]
+ RewriteRule ^work/categories\.php$ Work/categories.php [L,NC,QSA]
+</IfModule>
+<IfModule mod_authz_core.c>
+ <FilesMatch "^(\.env|Readme\.md|README\.md)$">
+  Require all denied
+ </FilesMatch>
+</IfModule>
+<IfModule mod_alias.c>
+ RedirectMatch 403 ^/(?:Includes|data|python|tests)(?:/|$)
+</IfModule>

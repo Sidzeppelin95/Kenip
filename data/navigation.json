@@ -1,1 +1,26 @@
-
+[
+  {
+    "label": "Solutions",
+    "href": "solutions.php"
+  },
+  {
+    "label": "Work",
+    "href": "work/index.php"
+  },
+  {
+    "label": "Capabilities",
+    "href": "capabilities.php"
+  },
+  {
+    "label": "Technology",
+    "href": "technology.php"
+  },
+  {
+    "label": "Approach",
+    "href": "approach.php"
+  },
+  {
+    "label": "About",
+    "href": "about.php"
+  }
+]
