@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-# Add a Sitemap directive after confirming production_url in data/site.json.
+Sitemap: /sitemap.xml

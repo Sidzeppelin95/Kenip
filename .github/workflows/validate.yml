@@ -1,0 +1,26 @@
+name: Website validation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: PHP syntax
+        run: find . -type f -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+      - name: Generate static SVGs
+        run: python python/build.py
+      - name: Validate JSON content
+        run: python python/validate_content.py
+      - name: Validate SVG assets
+        run: python python/validate_assets.py
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
