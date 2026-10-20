@@ -1,5 +1,1 @@
-a, .button, .header-cta { transition: color .18s ease, background-color .18s ease, border-color .18s ease, transform .18s ease; }
-.button:hover { transform: translateY(-1px); }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
+.status-dot{animation:signal 3s ease-in-out infinite}@keyframes signal{0%,100%{box-shadow:0 0 0 4px rgba(103,213,244,.08)}50%{box-shadow:0 0 0 8px rgba(103,213,244,.03)}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

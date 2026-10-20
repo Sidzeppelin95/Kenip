@@ -1,27 +1,57 @@
 [
   {
-    "title": "Understand",
-    "description": "Clarify objectives, users, environment, constraints, and evidence.",
-    "focus": "Clarify objectives, users, environment, constraints, and evidence."
+    "step": "01",
+    "name": "Understand",
+    "verb": "Clarify the problem",
+    "description": "Align on business objectives, users, current constraints, success criteria, and the evidence needed to make good decisions.",
+    "deliverables": [
+      "Problem framing",
+      "Requirements and constraints",
+      "Initial risks and assumptions"
+    ]
   },
   {
-    "title": "Architect",
-    "description": "Evaluate feasible options, interfaces, dependencies, and trade-offs.",
-    "focus": "Evaluate feasible options, interfaces, dependencies, and trade-offs."
+    "step": "02",
+    "name": "Architect",
+    "verb": "Choose a sound direction",
+    "description": "Compare suitable approaches, map interfaces and dependencies, and make trade-offs explicit before implementation.",
+    "deliverables": [
+      "Architecture outline",
+      "Technical options and trade-offs",
+      "Delivery plan"
+    ]
   },
   {
-    "title": "Build",
-    "description": "Implement the agreed scope with readable code and documentation.",
-    "focus": "Implement the agreed scope with readable code and documentation."
+    "step": "03",
+    "name": "Build",
+    "verb": "Implement the agreed scope",
+    "description": "Develop the solution in clear increments, using maintainable code, documented interfaces, and appropriate engineering practices.",
+    "deliverables": [
+      "Working implementation",
+      "Integration notes",
+      "Reviewable increments"
+    ]
   },
   {
-    "title": "Validate",
-    "description": "Test correctness, compatibility, security, reliability, and performance.",
-    "focus": "Test correctness, compatibility, security, reliability, and performance."
+    "step": "04",
+    "name": "Validate",
+    "verb": "Check the evidence",
+    "description": "Test behavior, compatibility, security, reliability, and performance where relevant to the agreed requirements.",
+    "deliverables": [
+      "Test evidence",
+      "Known limitations",
+      "Acceptance review"
+    ]
   },
   {
-    "title": "Improve",
-    "description": "Use findings and feedback to refine the solution and next steps.",
-    "focus": "Use findings and feedback to refine the solution and next steps."
+    "step": "05",
+    "name": "Improve",
+    "verb": "Refine with feedback",
+    "description": "Use findings and operational feedback to prioritize fixes, reduce risk, and plan the next useful iteration.",
+    "deliverables": [
+      "Prioritized improvements",
+      "Operational considerations",
+      "Next-step recommendations"
+    ]
   }
 ]
