@@ -1,1 +1,3 @@
-
+User-agent: *
+Allow: /
+# Add a Sitemap directive after confirming the production domain.

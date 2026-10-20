@@ -1,1 +1,27 @@
-
+[
+  {
+    "title": "Understand",
+    "description": "Clarify objectives, users, environment, constraints, and evidence.",
+    "focus": "Clarify objectives, users, environment, constraints, and evidence."
+  },
+  {
+    "title": "Architect",
+    "description": "Evaluate feasible options, interfaces, dependencies, and trade-offs.",
+    "focus": "Evaluate feasible options, interfaces, dependencies, and trade-offs."
+  },
+  {
+    "title": "Build",
+    "description": "Implement the agreed scope with readable code and documentation.",
+    "focus": "Implement the agreed scope with readable code and documentation."
+  },
+  {
+    "title": "Validate",
+    "description": "Test correctness, compatibility, security, reliability, and performance.",
+    "focus": "Test correctness, compatibility, security, reliability, and performance."
+  },
+  {
+    "title": "Improve",
+    "description": "Use findings and feedback to refine the solution and next steps.",
+    "focus": "Use findings and feedback to refine the solution and next steps."
+  }
+]
