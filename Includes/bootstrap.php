@@ -9,7 +9,7 @@ function site_data(string $name): array {
     static $cache = [];
     $map = ['technology.json' => 'technology,json', 'work-categories.json' => 'workcategories.json'];
     $name = $map[$name] ?? $name;
-    if (basename($name) !== $name || !preg_match('/^[a-z0-9,-]+\.json$/', $name)) throw new InvalidArgumentException('Invalid content filename');
+    if (basename($name) !== $name || !preg_match('/^[a-z0-9-]+(?:\.json|,json)$/', $name)) throw new InvalidArgumentException('Invalid content filename');
     if (isset($cache[$name])) return $cache[$name];
     $path = DATA_ROOT . '/' . $name;
     if (!is_file($path)) throw new RuntimeException('Content file unavailable: ' . $name);
@@ -18,6 +18,11 @@ function site_data(string $name): array {
     return $cache[$name] = $data;
 }
 function site_config(): array { return site_data('site.json'); }
+function site_url(string $path = ''): string {
+    $base = rtrim((string)(site_config()['base_path'] ?? ''), '/');
+    $path = ltrim($path, '/');
+    return $base . ($path === '' ? '/' : '/' . $path);
+}
 function canonical_url(string $path): ?string {
     $base = rtrim((string)(site_config()['production_url'] ?? ''), '/');
     return str_starts_with($base, 'https://') ? $base . '/' . ltrim($path, '/') : null;
