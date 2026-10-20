@@ -1,16 +1,22 @@
-"""Validate generated SVGs as well-formed XML with accessible labels."""
-import xml.etree.ElementTree as ET
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-REQUIRED=['hero-network.svg','technology-landscape.svg','capability-map.svg','delivery-process.svg']
+import xml.etree.ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[1]
+EXPECTED = ("hero-network.svg", "technology-landscape.svg", "capability-map.svg", "delivery-process.svg")
+SVG_NS = "{http://www.w3.org/2000/svg}"
+
 def main():
-    for name in REQUIRED:
-        path=ROOT/'assets'/'svg'/name
-        if not path.is_file():raise SystemExit(f'Missing SVG: {path.relative_to(ROOT)}')
-        try:root=ET.parse(path).getroot()
-        except ET.ParseError as exc:raise SystemExit(f'Invalid SVG {name}: {exc}') from exc
-        if not root.tag.endswith('svg'):raise SystemExit(f'{name} root is not svg')
-        ids={node.attrib.get('id') for node in root.iter() if node.attrib.get('id')}
-        if not {'svg-title','svg-desc'}<=ids:raise SystemExit(f'{name} is missing accessible title/description')
-    print(f'Validated {len(REQUIRED)} accessible SVG files.')
-if __name__=='__main__':main()
+    folder = ROOT / "assets" / "svg"
+    for name in EXPECTED:
+        path = folder / name
+        if not path.is_file() or path.stat().st_size < 100:
+            raise SystemExit(f"Missing or empty SVG asset: assets/svg/{name}")
+        root = ET.parse(path).getroot()
+        if root.tag != SVG_NS + "svg":
+            raise SystemExit(f"Not an SVG document: assets/svg/{name}")
+        if root.find(SVG_NS + "title") is None or root.find(SVG_NS + "desc") is None:
+            raise SystemExit(f"SVG must include title and description: assets/svg/{name}")
+    print("SVG/XML validation passed for all four original diagrams.")
+
+if __name__ == "__main__":
+    main()

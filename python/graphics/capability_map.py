@@ -1,9 +1,6 @@
-from .geometry import radial_points
-from .svg_engine import document,node
-def generate():
- labels=["AI & INTELLIGENCE","SECURITY & TRUST","SYSTEMS & PERFORMANCE","CLOUD & SOFTWARE","DIGITAL INFRASTRUCTURE","AUTONOMOUS SYSTEMS","RESEARCH & EMERGING TECH"]
- points=radial_points(350,235,145,len(labels));body=[]
- for x,y in points:body.append(f'<path d="M350 235 L{x:.1f} {y:.1f}" stroke="#35505b" stroke-width="1.5"/>')
- body.append(node(350,235,"SYSTEMS ENGINEERING","Shared technical foundation",True,180))
- for i,((x,y),label) in enumerate(zip(points,labels)):body.append(node(x,y,label,accent=(i in (0,3)),width=152))
- return document(700,470,"Capability map","Seven engineering domains connected through a shared systems engineering foundation.",''.join(body))
+from .svg_engine import svg_start,finish_svg,text,line,rect
+from .themes import get_theme
+def generate(theme_name='midnight',density=1.0):
+ t=get_theme(theme_name);p=svg_start(760,650,'Capability map','Seven engineering domains connected to systems thinking.',t['background']);cx,cy=380,323;nodes=[(380,100,'AI & INTELLIGENT','SYSTEMS'),(595,196,'CYBERSECURITY','& DIGITAL TRUST'),(613,375,'SYSTEMS &','PERFORMANCE'),(481,530,'CLOUD & SOFTWARE','ENGINEERING'),(266,530,'BLOCKCHAIN &','DIGITAL INFRASTRUCTURE'),(147,375,'AUTONOMOUS &','EMBEDDED SYSTEMS'),(165,196,'RESEARCH &','EMERGING TECH')]
+ for x,y,a,b in nodes:p.extend([line(cx,cy,x,y,t['accent']),rect(x-89,y-31,178,62,t['panel'],t['line']),text(x,y-3,a,11,t['ink'],'middle','600'),text(x,y+14,b,11,t['ink'],'middle','600')])
+ p.extend([f'<circle cx="{cx}" cy="{cy}" r="82" fill="{t["panel"]}" stroke="{t["accent"]}"/>',text(cx,306,'CORE',10,t['accent'],'middle'),text(cx,329,'SYSTEMS',18,t['ink'],'middle','600'),text(cx,348,'THINKING',18,t['ink'],'middle','600')]);return finish_svg(p)
