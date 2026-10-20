@@ -1,44 +1,26 @@
+"""Validate JSON structure and required content completeness."""
 import json
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-DATA_FILES = (
-    "site.json",
-    "navigation.json",
-    "solutions.json",
-    "approach.json",
-    "workcategories.json",
-    "technology,json",
-)
-
-def load_json(path: Path):
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        raise SystemExit(f"Invalid JSON in {path.relative_to(ROOT)} at line {exc.lineno}, column {exc.colno}: {exc.msg}") from exc
-
+ROOT=Path(__file__).resolve().parents[1]
+REQUIRED={'site.json','navigation.json','solutions.json','work-categories.json','capabilities.json','technology.json','approach.json'}
 def main():
-    loaded = {}
-    for name in DATA_FILES:
-        path = ROOT / "data" / name
-        if not path.is_file():
-            raise SystemExit(f"Required content file is missing: {path.relative_to(ROOT)}")
-        value = load_json(path)
-        if not isinstance(value, (dict, list)):
-            raise SystemExit(f"Expected an object or array in {path.relative_to(ROOT)}")
-        loaded[name] = value
-
-    site = loaded["site.json"]
-    for required in ("owner_name", "brand_name", "default_description"):
-        if not isinstance(site.get(required), str) or not site[required].strip():
-            raise SystemExit(f"data/site.json must contain a non-empty {required!r}")
-    solutions = loaded["solutions.json"]
-    if len(solutions) != 7 or len({item.get("slug") for item in solutions}) != 7:
-        raise SystemExit("data/solutions.json must contain seven uniquely-slugged solution areas")
-    for name in ("navigation.json", "solutions.json", "approach.json", "workcategories.json", "technology,json"):
-        if not loaded[name]:
-            raise SystemExit(f"Content array is empty: data/{name}")
-    print("Content validation passed: six JSON datasets parsed, required content checked.")
-
-if __name__ == "__main__":
-    main()
+    data=ROOT/'data';missing=REQUIRED-{p.name for p in data.glob('*.json')}
+    if missing:raise SystemExit(f'Missing required JSON files: {sorted(missing)}')
+    decoded={}
+    for name in sorted(REQUIRED):
+        path=data/name;raw=path.read_text(encoding='utf-8')
+        if not raw.strip():raise SystemExit(f'{path.relative_to(ROOT)} is empty; provide valid JSON. Empty optional values must be JSON null, not blank text.')
+        try:decoded[name]=json.loads(raw)
+        except json.JSONDecodeError as exc:raise SystemExit(f'{path.relative_to(ROOT)}:{exc.lineno}:{exc.colno}: {exc.msg}') from exc
+    if not isinstance(decoded['site.json'],dict):raise SystemExit('site.json must be an object')
+    categories=decoded['work-categories.json']
+    if not isinstance(categories,list) or len(categories)!=7:raise SystemExit('work-categories.json must contain exactly seven categories')
+    slugs=[c.get('slug') for c in categories]
+    if len(set(slugs))!=7 or not all(isinstance(s,str) and s for s in slugs):raise SystemExit('Category slugs must be unique non-empty strings')
+    for c in categories:
+        for key in ('title','summary','overview','problems','capabilities','technology_domains','engagements'):
+            if not c.get(key):raise SystemExit(f'Category {c.get("slug")} has missing or empty {key}')
+    if len(decoded['approach.json'])!=5:raise SystemExit('approach.json must contain five stages')
+    if decoded['site.json'].get('contact_form_enabled') is not False:raise SystemExit('Contact form must remain disabled')
+    print(f'Validated {len(REQUIRED)} JSON files, {len(categories)} categories, and {len(decoded["approach.json"])} approach stages.')
+if __name__=='__main__':main()

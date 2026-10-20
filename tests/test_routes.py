@@ -1,29 +1,11 @@
 import unittest
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-
-class RouteStructureTests(unittest.TestCase):
-    def test_all_page_templates_exist_in_the_precreated_directories(self):
-        pages = (
-            "Website/index.php", "Website/solutions.php", "Website/capabilities.php",
-            "Website/technology.php", "Website/approach.php", "Website/about.php",
-            "Website/contact.php", "Website/privacy.php", "Website/404.php",
-            "Work/index.php", "Work/categories.php",
-        )
-        for relative in pages:
-            with self.subTest(path=relative):
-                self.assertTrue((ROOT / relative).is_file())
-                self.assertGreater((ROOT / relative).stat().st_size, 100)
-
-    def test_terms_route_uses_existing_privacy_template(self):
-        rules = (ROOT / ".htaccess").read_text(encoding="utf-8")
-        self.assertIn("terms\\.php$ Website/privacy.php?document=terms", rules)
-        self.assertFalse((ROOT / "Website/terms.php").exists())
-
-    def test_existing_site_configuration_is_not_a_placeholder(self):
-        self.assertGreater((ROOT / "Includes/bootstrap.php").stat().st_size, 100)
-        self.assertTrue((ROOT / ".htaccess").is_file())
-
-if __name__ == "__main__":
-    unittest.main()
+ROOT=Path(__file__).resolve().parents[1]
+class RouteTests(unittest.TestCase):
+ def test_all_expected_pages_exist(self):
+  for path in ['index.php','solutions.php','work/index.php','work/category.php','capabilities.php','technology.php','approach.php','about.php','contact.php','privacy.php','terms.php','404.php']:
+   with self.subTest(path=path):self.assertTrue((ROOT/path).is_file())
+ def test_shared_header_and_footer_are_included(self):
+  for path in ['index.php','solutions.php','capabilities.php','technology.php','approach.php','about.php','contact.php','privacy.php','terms.php','work/index.php']:
+   source=(ROOT/path).read_text(encoding='utf-8');self.assertIn('includes/header.php',source,path);self.assertIn('includes/footer.php',source,path)
+if __name__=='__main__':unittest.main()
