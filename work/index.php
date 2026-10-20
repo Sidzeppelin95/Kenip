@@ -1,8 +1,0 @@
-<?php
-require dirname(__DIR__).'/includes/bootstrap.php';
-$page=['title'=>'Work Categories | '.site_config()['owner_name'],'description'=>'Generalized categories of potential technology engagements, without fictional client work or unsupported case studies.','path'=>'work/'];
-$items=site_data('work-categories.json');
-require dirname(__DIR__).'/includes/header.php';
-?>
-<main id="main-content"><section class="page-hero"><div class="container"><p class="eyebrow">Work / Areas of practice</p><h1>Potential work, <em>clearly described.</em></h1><p class="hero-lede">These categories outline problem areas the practice may be able to address. They are not case studies or claims of client deployments.</p></div></section><section class="section"><div class="container solution-grid solution-grid-wide"><?php foreach($items as $i=>$item):?><article class="solution-card"><span class="item-number"><?=str_pad((string)($i+1),2,'0',STR_PAD_LEFT)?></span><h2><?=e($item['title'])?></h2><p><?=e($item['summary'])?></p><a class="text-link" href="<?=e(site_url('work/category.php?slug='.$item['slug']))?>">Explore category <span aria-hidden="true">↗</span></a></article><?php endforeach;?></div></section><section class="section section-light"><div class="container two-column-copy"><div><p class="eyebrow">No fictional case studies</p><h2>Clear about what's <em>potential.</em></h2></div><p>Verified client examples can be added when they are available and approved for publication. Until then, these pages focus on generalized capabilities, problem areas, and possible engagement types.</p></div></section></main>
-<?php require dirname(__DIR__).'/includes/footer.php'; ?>

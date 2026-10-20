@@ -1,9 +1,6 @@
-from .svg_engine import document,node
-def generate():
- nodes=[(160,95,"APPLICATIONS"),(355,70,"AI / INFERENCE"),(550,95,"CLOUD"),(160,250,"SECURITY"),(355,250,"SYSTEMS"),(550,250,"PERFORMANCE"),(355,390,"AUTONOMY")]
- edges=[]
- for a,b in [(0,1),(1,2),(0,3),(0,4),(1,4),(2,5),(3,4),(4,5),(4,6),(5,6),(2,4)]:
-  x1,y1,*_=nodes[a];x2,y2,*_=nodes[b]
-  edges.append(f'<path d="M{x1} {y1} L{x2} {y2}" fill="none" stroke="#42606c" stroke-width="1.4"/><circle cx="{(x1+x2)/2}" cy="{(y1+y2)/2}" r="3" fill="#67d5f4"/>')
- body=''.join(edges)+''.join(node(x,y,label,accent=(i in (1,4))) for i,(x,y,label) in enumerate(nodes))
- return document(710,465,"Connected engineering network","Relationships between applications, AI, cloud, security, systems, performance, and autonomy.",body)
+from .svg_engine import svg_start,finish_svg,text,line,rect
+from .themes import get_theme
+def generate(theme_name='midnight',density=1.0):
+ t=get_theme(theme_name);p=svg_start(760,650,'Connected technology network','Seven technology domains around systems integration.',t['background']);cx,cy=380,320;nodes=[(115,190,'APPLICATIONS','Product layer'),(550,94,'AI / MODELS','Inference systems'),(644,302,'CLOUD','Infrastructure'),(590,544,'PERFORMANCE','Runtime behaviour'),(134,549,'AUTONOMY','Embedded systems'),(78,422,'SECURITY','Trust boundaries'),(276,48,'SYSTEMS','Operating layer')]
+ for x,y,a,b in nodes:p.extend([line(cx,cy,x,y,t['accent']),rect(x-63,y-24,126,48,t['panel'],t['line']),text(x,y-2,a,10,t['ink'],'middle','600'),text(x,y+13,b,9,t['muted'],'middle')])
+ p.extend([f'<circle cx="{cx}" cy="{cy}" r="87" fill="{t["panel"]}" stroke="{t["accent"]}"/>',text(cx,306,'SYSTEMS',11,t['accent'],'middle'),text(cx,329,'INTEGRATION',20,t['ink'],'middle','600'),text(cx,348,'Interfaces · Evidence · Delivery',10,t['muted'],'middle')]);return finish_svg(p)
