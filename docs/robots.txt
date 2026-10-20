@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sidzeppelin95.github.io/Kenip/sitemap.xml
