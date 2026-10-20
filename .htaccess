@@ -6,6 +6,7 @@ ErrorDocument 404 /Website/404.php
  RewriteRule (^|/)\.git(/|$) - [F,L,NC]
  RewriteRule (^|/)\.env(?:\..*)?$ - [F,L,NC]
  RewriteRule ^$ Website/index.php [L]
+ RewriteRule ^index\.php$ Website/index.php [L,NC]
  RewriteRule ^terms\.php$ Website/privacy.php?document=terms [L,NC,QSA]
  RewriteRule ^(solutions|capabilities|technology|approach|about|contact|privacy|404)\.php$ Website/$1.php [L,NC]
  RewriteRule ^work/?$ Work/index.php [L,NC]
