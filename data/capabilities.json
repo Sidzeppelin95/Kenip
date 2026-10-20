@@ -1,0 +1,177 @@
+[
+  {
+    "slug": "ai-intelligent-systems",
+    "title": "AI & Intelligent Systems",
+    "summary": "Intelligent applications, machine-learning workflows, and inference-oriented software designed around clear requirements and responsible engineering.",
+    "what_it_encompasses": "AI capabilities become useful when they fit real workflows, operate within clear constraints, and can be evaluated beyond a compelling demo. Potential engagements may span application design, model integration, inference paths, and operational evaluation.",
+    "problems": [
+      "Integrating AI into existing products and business workflows",
+      "Evaluating model or inference options against constraints",
+      "Designing reliable application boundaries around probabilistic outputs",
+      "Measuring latency, cost, and quality during prototyping"
+    ],
+    "technical_areas": [
+      "Application architecture",
+      "AI and inference integration",
+      "API and backend engineering",
+      "Evaluation and test design"
+    ],
+    "engagement_path": [
+      "Feasibility assessment",
+      "Prototype or proof of concept",
+      "Application integration",
+      "Evaluation and optimization"
+    ],
+    "number": "01"
+  },
+  {
+    "slug": "cybersecurity-digital-trust",
+    "title": "Cybersecurity & Digital Trust",
+    "summary": "Security-minded application design, identity boundaries, access control, and practical trust mechanisms.",
+    "what_it_encompasses": "Security is an engineering property that should be considered across architecture, implementation, operation, and maintenance. Scope depends on the system, threat model, data sensitivity, and operating environment.",
+    "problems": [
+      "Reviewing authentication and authorization boundaries",
+      "Reducing avoidable application attack surface",
+      "Clarifying trust between services and users",
+      "Improving secure defaults and operational visibility"
+    ],
+    "technical_areas": [
+      "Secure software architecture",
+      "Identity and access control",
+      "API design and integration",
+      "Validation and threat-oriented review"
+    ],
+    "engagement_path": [
+      "Architecture review",
+      "Security-focused implementation",
+      "Integration hardening",
+      "Technical investigation"
+    ],
+    "number": "02"
+  },
+  {
+    "slug": "systems-performance-engineering",
+    "title": "Systems & Performance Engineering",
+    "summary": "Systems software, profiling, resource efficiency, reliability, and CPU/GPU-aware optimization.",
+    "what_it_encompasses": "Performance work begins with measurement and a defined workload. The aim is to understand bottlenecks, evaluate trade-offs, and improve the parts of a system where evidence supports change.",
+    "problems": [
+      "Diagnosing CPU, memory, I/O, or GPU bottlenecks",
+      "Improving resource utilization and throughput",
+      "Investigating latency and reliability issues",
+      "Comparing implementation or runtime alternatives"
+    ],
+    "technical_areas": [
+      "Systems engineering",
+      "Profiling and benchmarking",
+      "Concurrency and resource analysis",
+      "Test design and performance validation"
+    ],
+    "engagement_path": [
+      "Performance assessment",
+      "Profiling and instrumentation",
+      "Optimization prototype",
+      "Reliability investigation"
+    ],
+    "number": "03"
+  },
+  {
+    "slug": "cloud-software-engineering",
+    "title": "Cloud & Software Engineering",
+    "summary": "Backend services, APIs, application architecture, cloud infrastructure, deployment, and integration.",
+    "what_it_encompasses": "Maintainable software connects product needs to clear interfaces, reliable delivery, and operational constraints. Engagements can focus on a component, an integration boundary, or an end-to-end technical foundation.",
+    "problems": [
+      "Building or evolving backend services and APIs",
+      "Connecting applications and third-party platforms",
+      "Improving deployment and environment consistency",
+      "Clarifying service boundaries and maintainability"
+    ],
+    "technical_areas": [
+      "Application and backend development",
+      "API and systems integration",
+      "Architecture and deployment design",
+      "Testing and operational readiness"
+    ],
+    "engagement_path": [
+      "New development",
+      "Legacy integration",
+      "Architecture and delivery review",
+      "Incremental improvement"
+    ],
+    "number": "04"
+  },
+  {
+    "slug": "blockchain-digital-infrastructure",
+    "title": "Blockchain & Digital Infrastructure",
+    "summary": "Carefully scoped blockchain-related applications, wallet integrations, and digital systems architecture.",
+    "what_it_encompasses": "Distributed-ledger technology introduces distinctive trust, key-management, transaction, and operational concerns. Suitability should be assessed against the use case rather than assumed from the technology label.",
+    "problems": [
+      "Assessing whether a distributed ledger fits a requirement",
+      "Integrating wallet or network-facing components",
+      "Defining application boundaries around external protocols",
+      "Reviewing operational and key-management considerations"
+    ],
+    "technical_areas": [
+      "Systems integration",
+      "API and backend engineering",
+      "Security-minded architecture",
+      "Feasibility analysis"
+    ],
+    "engagement_path": [
+      "Technology feasibility review",
+      "Integration prototype",
+      "Architecture assessment",
+      "Technical research"
+    ],
+    "number": "05"
+  },
+  {
+    "slug": "autonomous-embedded-systems",
+    "title": "Autonomous & Embedded Systems",
+    "summary": "Embedded software, robotics and UAV-related software, control interfaces, and system integration.",
+    "what_it_encompasses": "Autonomous and embedded systems require careful attention to interfaces between software, hardware, sensing, control, and operational context. Work should be scoped around safety, validation needs, and available test environments.",
+    "problems": [
+      "Integrating software components across device boundaries",
+      "Evaluating control, telemetry, or sensor interfaces",
+      "Investigating resource-constrained execution",
+      "Planning simulation and validation approaches"
+    ],
+    "technical_areas": [
+      "Embedded and systems software",
+      "Interface and protocol integration",
+      "Performance and reliability analysis",
+      "Prototyping and validation"
+    ],
+    "engagement_path": [
+      "Feasibility study",
+      "Simulation or prototype",
+      "Integration assessment",
+      "Test strategy development"
+    ],
+    "number": "06"
+  },
+  {
+    "slug": "research-emerging-technology",
+    "title": "Research & Emerging Technology",
+    "summary": "Technical investigation, experimentation, prototypes, feasibility studies, and architecture exploration.",
+    "what_it_encompasses": "Research-oriented engineering creates a disciplined path from uncertainty to evidence. A useful outcome may be a tested hypothesis, a clear constraint, a prototype, or a decision to avoid an unsuitable approach.",
+    "problems": [
+      "Comparing technical approaches before committing",
+      "Testing assumptions through small experiments",
+      "Assessing feasibility and integration constraints",
+      "Documenting risks, trade-offs, and next steps"
+    ],
+    "technical_areas": [
+      "Technical research",
+      "Prototype development",
+      "Architecture assessment",
+      "Benchmarking and validation"
+    ],
+    "engagement_path": [
+      "Discovery sprint",
+      "Proof of concept",
+      "Comparative evaluation",
+      "Technical decision support"
+    ],
+    "number": "07"
+  }
+]
