@@ -1,6 +1,1 @@
-from .svg_engine import svg_start,finish_svg,text,line,rect
-from .themes import get_theme
-def generate(theme_name='midnight',density=1.0):
- t=get_theme(theme_name);p=svg_start(760,650,'Connected technology network','Seven technology domains around systems integration.',t['background']);cx,cy=380,320;nodes=[(115,190,'APPLICATIONS','Product layer'),(550,94,'AI / MODELS','Inference systems'),(644,302,'CLOUD','Infrastructure'),(590,544,'PERFORMANCE','Runtime behaviour'),(134,549,'AUTONOMY','Embedded systems'),(78,422,'SECURITY','Trust boundaries'),(276,48,'SYSTEMS','Operating layer')]
- for x,y,a,b in nodes:p.extend([line(cx,cy,x,y,t['accent']),rect(x-63,y-24,126,48,t['panel'],t['line']),text(x,y-2,a,10,t['ink'],'middle','600'),text(x,y+13,b,9,t['muted'],'middle')])
- p.extend([f'<circle cx="{cx}" cy="{cy}" r="87" fill="{t["panel"]}" stroke="{t["accent"]}"/>',text(cx,306,'SYSTEMS',11,t['accent'],'middle'),text(cx,329,'INTEGRATION',20,t['ink'],'middle','600'),text(cx,348,'Interfaces · Evidence · Delivery',10,t['muted'],'middle')]);return finish_svg(p)
+

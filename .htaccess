@@ -1,16 +1,1 @@
-Options -Indexes
-DirectoryIndex index.php
-ErrorDocument 404 /404.php
-<IfModule mod_rewrite.c>
- RewriteEngine On
- RewriteRule (^|/)\.git(/|$) - [F,L]
- RewriteRule (^|/)\.env(?:\..*)?$ - [F,L]
-</IfModule>
-<IfModule mod_authz_core.c>
- <FilesMatch "^(\.env|README\.md)$">
-  Require all denied
- </FilesMatch>
-</IfModule>
-<IfModule mod_alias.c>
- RedirectMatch 403 ^/(?:includes|data|python|tests)(?:/|$)
-</IfModule>
+
