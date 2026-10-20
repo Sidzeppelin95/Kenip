@@ -1,2 +1,1 @@
-THEMES={'midnight':{'background':'#111b22','panel':'#162a34','ink':'#f0fbfd','muted':'#91acb7','accent':'#66d7ee','line':'#5a98aa'},'light':{'background':'#f0f2f1','panel':'#fff','ink':'#10171d','muted':'#5b6971','accent':'#168da8','line':'#8aa7b1'}}
-def get_theme(name='midnight'): return dict(THEMES.get(name,THEMES['midnight']))
+
