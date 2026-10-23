@@ -6,12 +6,13 @@
   "default_description": "Independent software engineering and technology solutions across AI, cloud, systems engineering, cybersecurity, performance, and emerging technologies.",
   "base_path": "",
   "production_url": null,
-  "public_email": null,
+  "public_email": "siddhartha@kenip.in",
   "linkedin_url": null,
   "github_url": "https://github.com/Sidzeppelin95",
   "business_website_url": null,
-  "public_business_location": null,
+  "public_business_location": "1H192 Sector 1 Indira Gandhi Nagar Jagatpura Jaipur 302017",
   "legal_entity_name": null,
   "analytics_enabled": false,
-  "contact_form_enabled": false
+  "contact_form_enabled": false,
+  "public_phone": "+919119324345"
 }
