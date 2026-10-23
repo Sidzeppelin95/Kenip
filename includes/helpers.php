@@ -52,6 +52,10 @@ function safe_external_url(mixed $value): ?string {
 function render_contact_links(): array {
     $config = site_config();
     $links = [];
+    if (is_string($config['public_phone'] ?? null) && trim($config['public_phone']) !== '') {
+        $phone = trim($config['public_phone']);
+        $links[] = ['label' => 'Phone', 'value' => $phone, 'href' => 'tel:' . preg_replace('/[^+0-9]/', '', $phone)];
+    }
     if (is_string($config['public_email'] ?? null) && filter_var($config['public_email'], FILTER_VALIDATE_EMAIL)) {
         $links[] = ['label' => 'Email', 'value' => $config['public_email'], 'href' => 'mailto:' . $config['public_email']];
     }
